@@ -29,20 +29,14 @@ app.use(express.json());
 //api notes post request
 app.post("/api/notes", (req, res) => {
   const newNote = req.body
+  //generates a new ID and assigns it to the newID variable
+  const newID = generateID();
+  newNote.id = newID;
   console.log(newNote);
   //appends the new note to the database file
   fs.readFile('./db/db.json', (err, data) => {
     var json = JSON.parse(data)
     json.push(newNote)
-
-
-
-    const newID = generateID(); //generates a new ID and assigns it to the newID variable
-    console.log("NewID = " + newID);
-
-
-
-    //maybe here is where we want to add an ID to the notes?
     fs.writeFile("./db/db.json", JSON.stringify(json), () => {console.log("successfully added to database")});
   })
   res.json("Success");

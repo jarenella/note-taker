@@ -52,8 +52,11 @@ const deleteNote = (id) =>
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
+  console.log(activeNote); //works and logs the active note
+  console.log(activeNote.title); //also works, title exists. i could try creating an id for all the new things? in the objects? on line 72 to 76?
+  console.log(activeNote.id); //logs undefined, id doesn't exist
 
-  if (activeNote.id) {
+  if (activeNote.id) { //this is where we're running into the issue. there is no activeNote.id for some reason
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;

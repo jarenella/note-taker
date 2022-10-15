@@ -2,6 +2,7 @@ const fs = require("fs");
 const express = require("express");
 const routes= require("./routes/routes");
 const dataBase = require("./db/db.json"); //the database for when the user needs it
+const generateID = require("./lib/generateID");
 
 const app = express();
 //connects the static info in public folder to our server
@@ -33,9 +34,18 @@ app.post("/api/notes", (req, res) => {
   fs.readFile('./db/db.json', (err, data) => {
     var json = JSON.parse(data)
     json.push(newNote)
+    //maybe here is where we want to add an ID to the notes?
+    //lets also make an external function to import that uses loops to always make a new id number thats +1 higher than the last one
     fs.writeFile("./db/db.json", JSON.stringify(json), () => {console.log("successfully added to database")});
   })
   res.json("Success");
+})
+
+//api notes delete request
+app.delete("/api/notes/*", (req, res) => {
+  const itemToDelete = req.body;
+  console.log(itemToDelete); //itemtodelete is an empty object and itemtodelete.id is undefined
+  res.send("Successfully deleted");
 })
 
 

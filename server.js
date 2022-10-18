@@ -1,8 +1,8 @@
 const fs = require("fs");
 const express = require("express");
 const routes= require("./routes/routes");
-const dataBase = require("./db/db.json"); //the database for when the user needs it
 const generateID = require("./lib/generateID");
+const path = require('path');
 
 const app = express();
 //connects the static info in public folder to our server
@@ -20,7 +20,7 @@ app.get("/notes", (req, res) => {
 
 //api notes get request
 app.get("/api/notes", (req, res) => {
-  res.send(dataBase);
+  res.sendFile(path.join(__dirname, './db', 'db.json'));
 })
 
 //allows us to use req.body when getting client requests, which parses the JSON input they are sending
@@ -29,11 +29,11 @@ app.use(express.json());
 //api notes post request
 app.post("/api/notes", (req, res) => {
   const newNote = req.body
-  //generates a new ID and assigns it to the newID variable
+  //vvv generates a new ID and assigns it to the newID variable vvv
   const newID = generateID();
   newNote.id = newID;
   console.log(newNote);
-  //appends the new note to the database file
+  //vvv appends the new note to the database file vvv
   fs.readFile('./db/db.json', (err, data) => {
     var json = JSON.parse(data)
     json.push(newNote)

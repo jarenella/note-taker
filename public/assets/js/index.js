@@ -72,7 +72,7 @@ const handleNoteSave = () => {
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
-    getAndRenderNotes();
+    getAndRenderNotes(); // why is it not rendering after a new note is saved???
     renderActiveNote();
   });
 };

@@ -14,7 +14,7 @@ A simple site that allows you to take and save notes with persistant data stored
 
 - [Usage Information](#Usage-Information)
 
-- [Deployment] (#Deployment)
+- [Deployment](#Deployment)
 
 - [License](#License)
 

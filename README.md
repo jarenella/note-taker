@@ -14,9 +14,7 @@ A simple site that allows you to take and save notes with persistant data stored
 
 - [Usage Information](#Usage-Information)
 
-- [Contribution guidelines](#Contribution-guidelines)
-
-- [Test instructions](#Test-instructions)
+- [Deployment] (#Deployment)
 
 - [License](#License)
 
@@ -28,10 +26,13 @@ No installation required
 
 Click the button in the center of the page to be taken to the note taking page. From there you can enter notes. Press the save icon in the top left to post and save them. Click on the notes on the left to view them, and to add a new note, click on the plus button in the top right next to the save icon.
 
+# Deployment
+
+Live Heroku deployment [here](https://persistent-note-taking-app.herokuapp.com/)
+
 # License
     
 - [MIT] https://www.mit.edu/~amini/LICENSE.md
-
 
 # Questions?
 
